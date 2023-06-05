@@ -3,7 +3,7 @@ from .import views
 
 #Para el login:
 
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 
 # Create your views here.
@@ -27,3 +27,23 @@ def login_request(request):
     else:
         form = AuthenticationForm()
     return render(request, "home/login.html", {"form": form})
+
+
+# Vista de registro
+def register(request):
+
+      if request.method == 'POST':
+
+            form = UserCreationForm(request.POST)
+
+            if form.is_valid():
+
+                username = form.cleaned_data['username']
+                form.save()
+                return render(request,"home/inicio.html" ,  {"mensaje":"Usuario Creado :)"})
+
+      else:
+           form = UserCreationForm()      
+      return render(request,"home/registro.html" ,  {"form":form})
+
+    
