@@ -1,5 +1,8 @@
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from .import views
+from .import forms
+
 
 #Para el login:
 
@@ -29,7 +32,7 @@ def login_request(request):
 # Vista de registro
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = forms.CustomUserCreationForm(request.POST)
         if form.is_valid():
 
                 username = form.cleaned_data['username']
@@ -37,7 +40,7 @@ def register(request):
                 return render(request,"home/index.html" ,  {"mensaje":"Usuario Creado :)"})
 
     else:
-        form = UserCreationForm()      
+        form = forms.CustomUserCreationForm()      
     return render(request,"home/registro.html" ,  {"form":form})
 
     
