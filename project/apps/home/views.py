@@ -12,15 +12,12 @@ def index(request):
     return render(request, 'home/index.html')
 
 def login_request(request):
-    
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             usuario = form.cleaned_data.get('username')
             contrasenia = form.cleaned_data.get('password')
-
             user = authenticate(username= usuario, password=contrasenia)
-
             if user is not None:
                 login(request, user)
                 return render(request, "home/index.html", {"mensaje":f"Bienvenido {usuario}"})
@@ -31,19 +28,16 @@ def login_request(request):
 
 # Vista de registro
 def register(request):
-
-      if request.method == 'POST':
-
-            form = UserCreationForm(request.POST)
-
-            if form.is_valid():
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
 
                 username = form.cleaned_data['username']
                 form.save()
-                return render(request,"home/inicio.html" ,  {"mensaje":"Usuario Creado :)"})
+                return render(request,"home/index.html" ,  {"mensaje":"Usuario Creado :)"})
 
-      else:
-           form = UserCreationForm()      
-      return render(request,"home/registro.html" ,  {"form":form})
+    else:
+        form = UserCreationForm()      
+    return render(request,"home/registro.html" ,  {"form":form})
 
     
