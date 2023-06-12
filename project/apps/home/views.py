@@ -19,8 +19,6 @@ def index(request):
     return render(request, 'home/index.html', {"url": avatares[0].imagen.url})
 
 
-
-
 # Vista de registro
 def register(request):
     if request.method == 'POST':
