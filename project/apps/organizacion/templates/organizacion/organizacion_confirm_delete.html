@@ -1,0 +1,17 @@
+{% extends 'organizacion/index.html' %}
+
+{% block title %}
+    Eliminar Organizacion
+{% endblock title %}
+
+{% block content_organizacion %}
+<p class="fs-5 fst-italic">¿Confirmas eliminar "{{ object }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <div class="d-grid gap-3">
+        <button type="submit" class="btn btn-danger">Confirmar</button>
+
+    </div>
+</form>
+
+{% endblock content_organizacion %}

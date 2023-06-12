@@ -16,8 +16,8 @@
         </div>
         <div class="card-footer">
             <a class="btn btn-primary btn-sm" href="#!">Detalles</a>
-            <a class="btn btn-primary btn-sm" href="#!">Editar</a>
-            <a class="btn btn-primary btn-sm" href="#!">Eliminar</a>
+            <a class="btn btn-primary btn-sm" href="{% url 'organizacion:organizacion_update' organizacion.id %}">Editar</a>
+            <a class="btn btn-danger" href="{% url 'organizacion:organizacion_delete' organizacion.id %}">Eliminar</a>
         </div>
     </div>
     {% endfor %}

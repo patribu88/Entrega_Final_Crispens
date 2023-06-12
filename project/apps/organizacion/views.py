@@ -24,3 +24,18 @@ class OrganizacionCreate(CreateView):
     template_name = "organizacion/organizacion_form.html"
     form_class = forms.OrganizacionForm
     success_url = reverse_lazy("organizacion:index")
+
+
+class OrganizacionDelete(DeleteView):
+    model = models.Organizacion
+    template_name = "organizacion/organizacion_confirm_delete.html"
+    success_url = reverse_lazy("organizacion:index")
+
+
+class OrganizacionUpdate(UpdateView):
+    model = models.Organizacion
+    template_name = "organizacion/organizacion_form.html"
+    success_url = reverse_lazy("organizacion:organizacion_list")
+    form_class = forms.OrganizacionForm
+
+
