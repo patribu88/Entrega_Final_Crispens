@@ -11,14 +11,14 @@
 
                     <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active {% endif  %}" href="#!">Animales</a></li>
                     <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active {% endif  %}" href="#!">Organizaciones</a></li>
-                    <li class="nav-item"><a class="nav-link">{{ user.username }}</a></li>          
-                    <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active {% endif  %}" href="{% url 'home:logout' %}">Logout</a></li>          
-
+                    <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active {% endif  %}" href="{% url 'home:editarPerfil' %}">Hola, {{ user.username }}!</a></li>                   
+                    <li class="nav-item"> <img height="40px" src="{{url}}" alt="Avatar"></h3></li>
+                    <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active {% endif  %}" href="{% url 'home:logout' %}">Logout</a></li>  
                 {% else %}
 
                     <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active {% endif  %}" href="#!">Sobre Nosotros</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'home:login' %}">Login</a></li>
-                    
+
                 {% endif %}
             </ul>
         </div>

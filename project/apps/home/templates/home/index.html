@@ -4,9 +4,13 @@
 
 {% block content %}
 
-    {% if user.is_authenticated %}
+    {% if request.user.is_authenticated %}
         <p>{{ mensaje }}</p>
-    {% endif %}
+        <h3 class="d-flex align-items-center">Bienvenidx, {{ user.username }}
+            <div>
+        <img height="40px" src="{{url}}" alt="Avatar"></h3>
+    </div>
+        {% endif %}
 
 
 <div class="row gx-4 gx-lg-5 align-items-center my-5">
