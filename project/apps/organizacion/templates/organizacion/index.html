@@ -12,9 +12,13 @@
 
         {% block content_organizacion %}
             <div class="d-grid gap-3">
-
+                
                 <a href="{% url 'organizacion:organizacion_list' %}" class="btn btn-primary">Listar</a>
-                <a href="{% url 'organizacion:organizacion_create' %}" class="btn btn-primary">Crear</a>
+                
+                {% if user.is_staff %}
+                    <a href="{% url 'organizacion:organizacion_create' %}" class="btn btn-primary">Crear</a>
+                {% endif %}
+                
                 <br>
             </div>
         {% endblock content_organizacion %}
