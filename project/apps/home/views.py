@@ -15,8 +15,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-    avatares = models.Avatar.objects.filter(user=request.user.id)
-    return render(request, 'home/index.html', {"url": avatares[0].imagen.url})
+    return render(request, 'home/index.html')
 
 
 # Vista de registro

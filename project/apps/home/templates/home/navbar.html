@@ -1,4 +1,6 @@
 <!-- Responsive navbar-->
+
+{% load static %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-5">
         <a class="navbar-brand" href="#!">Red de Hogares de Tránsito</a>
@@ -12,7 +14,11 @@
                     <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active {% endif  %}" href="#!">Animales</a></li>
                     <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active {% endif  %}" href="{% url 'organizacion:index' %}">Organizaciones</a></li>
                     <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active {% endif  %}" href="{% url 'home:editarPerfil' %}">Hola, {{ user.username }}!</a></li>
-                    <li class="nav-item"> <img height="30px" src="{{url}}" alt="Avatar"></h3></li>
+                    {% if user.usuario.avatar.url  %}
+                    <li class="nav-item"><img src="{{ user.usuario.avatar.url }}" alt="avatar" class="img-fluid rounded-circle" style="height: 30px;" ></li>
+                    {% else %}
+                        <li class="nav-item"><img src="{% static 'home/avatares.png' %}" alt="avatar" class="img-fluid rounded-circle" style="height: 30px;" ></li>
+                    {% endif %}
                     <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active {% endif  %}" href="{% url 'home:logout' %}">Logout</a></li>  
                 {% else %}
 

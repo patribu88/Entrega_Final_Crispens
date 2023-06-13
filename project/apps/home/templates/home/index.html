@@ -5,12 +5,16 @@
 {% block content %}
 
     {% if request.user.is_authenticated %}
-        <p>{{ mensaje }}</p>
         <h3 class="d-flex align-items-center">Bienvenidx, {{ user.username }}
-            <div>
-        <img height="40px" src="{{url}}" alt="Avatar"></h3>
-    </div>
-        {% endif %}
+        {% if user.usuario.avatar.url %}
+            <img src="{{ user.usuario.avatar.url}}" alt="avatar" style="height: 30px;" />
+        
+        {% else %}
+            <img src="{% static 'home/avatares.png' %}" alt="avatar" style="height: 30px;" />
+        {% endif %}   
+       
+        </h3>   
+    {% endif %}
 
 
 <div class="row gx-4 gx-lg-5 align-items-center my-5">

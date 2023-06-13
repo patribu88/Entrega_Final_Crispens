@@ -3,12 +3,12 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class Avatar(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    imagen = models.ImageField(upload_to='avatares', null=True, blank=True)
+class Usuario(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    avatar = models.ImageField(upload_to="avatars", blank=True, null=True)
 
     class  Meta:
-        verbose_name = 'avatar'
-        verbose_name_plural = 'avatares'
+        verbose_name = 'usuario'
+        verbose_name_plural = 'usuarios'
     def __str__(self):
-        return f"{self.user} - {self.imagen}"
+        return f"{self.user.username}"
