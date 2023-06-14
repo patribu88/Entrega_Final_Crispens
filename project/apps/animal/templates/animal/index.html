@@ -6,21 +6,21 @@
         <h3 class="pb-lg-3">
 
             {% block title %}
-                Animales disponibles para transitar
+                animalitos
             {% endblock title %}
         </h3>
 
-        {% block animales %}
-        <div class="">
+        {% block content_animal %}
+            <div class="">
                 
-            <a href="{% url 'animal:animal_list' %}" class="btn btn-info">Listar</a>
-            
-            {% if user.is_staff %}
-                <a href="#!" class="btn btn-success">Crear</a>
-            {% endif %}
-        <h2></h2>    
-            <br>
-        </div>
-        {% endblock animales %}
+                <a href="{% url 'animal:animal_list' %}" class="btn btn-info">Listar</a>
+                
+                {% if user.is_staff %}
+                    <a href="{% url 'animal:animal_create' %}" class="btn btn-success">Crear</a>
+                {% endif %}
+            <h2></h2>    
+                <br>
+            </div>
+        {% endblock content_animal %}
     </div>
 {% endblock content %}

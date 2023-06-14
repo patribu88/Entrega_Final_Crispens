@@ -1,12 +1,30 @@
 {% extends 'animal/index.html' %}
 
 {% block title %}
-    Lista de animales
+    Listado de Animales
 {% endblock title %}
 
-{% block animales %}
-    
-    {{animal.nombre}}
+{% block content_animal %}
 
 
-{% endblock animales %}
+{% for animal in animales %}
+</div>
+</div>
+<div class="col-md-4 mb-5">
+    <div class="card h-100">
+        <div class="card-body">
+            <h2 class="card-title">{{animal.nombre}}</h2>
+            <p class="card-text">{{animal.organizacion_id}}</p>
+        </div>
+        <div class="card-footer">
+            {% if user.is_staff %}
+            <a class="btn btn-info" href="#!">Detalles</a>
+            <a class="btn btn-success" href="{% url 'animal:animal_update' animal.id %}">Editar</a>
+            <a class="btn btn-danger" href="{% url 'animal:animal_delete' animal.id %}">Eliminar</a>   
+            
+            {% endif %}
+
+        </div>
+    </div>
+{% endfor %}
+{% endblock content_animal %}

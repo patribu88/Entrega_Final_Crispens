@@ -15,6 +15,7 @@ def index(request: HttpResponse):
 
 class AnimalList(ListView):
     model = models.Animal
+    template_name = "animal/list.html"
     context_object_name = "animales"
 
 class AnimalCreate(CreateView):
@@ -23,12 +24,12 @@ class AnimalCreate(CreateView):
     success_url = reverse_lazy("animal:index")
 
 
-class OrganizacionDelete(DeleteView):
+class AnimalDelete(DeleteView):
     model = models.Animal
     success_url = reverse_lazy("animal:index")
 
 
-class OrganizacionUpdate(UpdateView):
+class AnimalUpdate(UpdateView):
     model = models.Animal
     success_url = reverse_lazy("animal:animal_list")
     form_class = forms.AnimalForm
