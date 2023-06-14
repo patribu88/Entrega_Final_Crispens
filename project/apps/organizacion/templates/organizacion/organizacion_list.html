@@ -16,7 +16,7 @@
         </div>
         <div class="card-footer">
             {% if user.is_staff %}
-            <a class="btn btn-primary btn-sm" href="{% url 'organizacion:organizacion_update' organizacion.id %}">Editar</a>
+            <a class="btn btn-success" href="{% url 'organizacion:organizacion_update' organizacion.id %}">Editar</a>
             <a class="btn btn-danger" href="{% url 'organizacion:organizacion_delete' organizacion.id %}">Eliminar</a>   
             
             {% endif %}

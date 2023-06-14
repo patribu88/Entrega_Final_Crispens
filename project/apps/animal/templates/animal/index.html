@@ -1,0 +1,26 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+    <h1 class="shadow-lg text-center">Animales</h1>
+    <div class="container mt-lg-3">
+        <h3 class="pb-lg-3">
+
+            {% block title %}
+                Animales disponibles para transitar
+            {% endblock title %}
+        </h3>
+
+        {% block animales %}
+        <div class="">
+                
+            <a href="{% url 'animal:animal_list' %}" class="btn btn-info">Listar</a>
+            
+            {% if user.is_staff %}
+                <a href="#!" class="btn btn-success">Crear</a>
+            {% endif %}
+        <h2></h2>    
+            <br>
+        </div>
+        {% endblock animales %}
+    </div>
+{% endblock content %}
