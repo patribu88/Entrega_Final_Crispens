@@ -5,14 +5,14 @@
 {% endblock title %}
 
 {% block content_animal %}
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <div class="d-grid gap-3">
         <button type="submit" class="btn btn-success">Guardar</button>
     </div>
 </form>
-{% url 'organizacion:index' as url %}
+{% url 'animal:index' as url %}
 
 
 {% endblock content_animal %}

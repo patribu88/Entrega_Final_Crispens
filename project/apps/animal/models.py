@@ -42,6 +42,7 @@ class Animal(models.Model):
     sexo_id = models.ForeignKey(Sexo, on_delete=models.SET_NULL, null=True)
     tipo_animal_id = models.ForeignKey(TipoAnimal, on_delete=models.SET_NULL, null=True)
     personalidad = models.CharField(max_length=300)
+    foto = models.ImageField(upload_to='Animales_Fotos', null=True, blank = True)
 
     class  Meta:
         verbose_name = 'Animal'

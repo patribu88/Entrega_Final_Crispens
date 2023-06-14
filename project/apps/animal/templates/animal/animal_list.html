@@ -7,20 +7,22 @@
 {% block content_animal %}
 
 
-{% for animal in animales %}
+{% for object in animales %}
 </div>
 </div>
 <div class="col-md-4 mb-5">
     <div class="card h-100">
         <div class="card-body">
-            <h2 class="card-title">{{animal.nombre}}</h2>
-            <p class="card-text">{{animal.organizacion_id}}</p>
+            <h2 class="card-title">{{object.nombre}}</h2>
+            <p class="card-text">Edad: {{object.edad}}</p>
+            <p class="card-text">Tipo de Animal: {{object.tipo_animal_id}}</p>
+            <img src="{{ object.foto.url }}" alt="20px" width="300"></li>
         </div>
         <div class="card-footer">
-            <a class="btn btn-info" href="{% url 'animal:animal_detail' animal.id %}">Detalles</a>
+            <a class="btn btn-info" href="{% url 'animal:animal_detail' object.id %}">Detalles</a>
                 {% if user.is_staff %}
-                    <a class="btn btn-success" href="{% url 'animal:animal_update' animal.id %}">Editar</a>
-                    <a class="btn btn-danger" href="{% url 'animal:animal_delete' animal.id %}">Eliminar</a>   
+                    <a class="btn btn-success" href="{% url 'animal:animal_update' object.id %}">Editar</a>
+                    <a class="btn btn-danger" href="{% url 'animal:animal_delete' object.id %}">Eliminar</a>   
             
                 {% endif %}
 

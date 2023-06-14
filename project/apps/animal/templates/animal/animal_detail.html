@@ -1,13 +1,17 @@
 {% extends 'animal/index.html' %}
 
 {% block title %}
-    Detalle de Animal para transitar
+        {{ object.nombre }}
 {% endblock title %}
 
 {% block content_animal %}
     <ul>
-        <li>Nombre: {{ object.nombre }}</li>
-        <li>Detalle: {{ object.edad }}</li>
+        <li>Edad: {{ object.edad }}</li>
+        <li>Organizacion: {{ object.organizacion_id }}</li>
+        <li>Tipo de Animal: {{ object.tipo_animal_id }}</li>
+        <li>Sexo: {{ object.sexo_id }}</li>
+        <li>Personalidad: {{ object.personalidad }}</li>
+        <img src="{{ object.foto.url }}" alt="20px" width="300"></li>
     </ul>
 
     {% url 'animal:index' as url %}

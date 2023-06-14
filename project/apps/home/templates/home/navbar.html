@@ -22,7 +22,7 @@
                     <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active {% endif  %}" href="{% url 'home:logout' %}">Logout</a></li>  
                 {% else %}
 
-                    <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active {% endif  %}" href="#!">Sobre Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active {% endif  %}" href="{% url 'home:sobreNosotrxs' %}">Sobre Nosotrxs</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'home:login' %}">Login</a></li>
 
                 {% endif %}

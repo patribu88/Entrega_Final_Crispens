@@ -17,6 +17,10 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     return render(request, 'home/index.html')
 
+#Sobre Nosotrxs
+def sobreNosotrxs(request: HttpRequest) -> HttpResponse:
+    return render(request, "home/sobreNosotrxs.html")
+
 
 # Vista de registro
 def register(request):
