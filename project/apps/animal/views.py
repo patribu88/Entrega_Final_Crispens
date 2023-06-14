@@ -2,7 +2,7 @@ from django.shortcuts import render
 from . import models, forms
 from django.http import HttpRequest, HttpResponse
 from django.urls import reverse_lazy
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView 
 
 
@@ -17,6 +17,9 @@ class AnimalList(ListView):
     model = models.Animal
     template_name = "animal/list.html"
     context_object_name = "animales"
+
+class AnimalDetail(DetailView):
+    model = models.Animal
 
 class AnimalCreate(CreateView):
     model = models.Animal

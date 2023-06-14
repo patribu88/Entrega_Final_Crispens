@@ -1,0 +1,15 @@
+{% extends 'animal/index.html' %}
+
+{% block title %}
+    Detalle de Animal para transitar
+{% endblock title %}
+
+{% block content_animal %}
+    <ul>
+        <li>Nombre: {{ object.nombre }}</li>
+        <li>Detalle: {{ object.edad }}</li>
+    </ul>
+
+    {% url 'animal:index' as url %}
+  
+{% endblock content_animal %}
