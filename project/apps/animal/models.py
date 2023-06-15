@@ -70,7 +70,6 @@ class hogarTransito(models.Model):
     animal_id = models.ForeignKey(Animal, on_delete=models.SET_NULL, null=True, verbose_name="Animal")
     direccion = models.CharField(max_length=200, verbose_name="Localidad/Barrio")
     edad = models.IntegerField(verbose_name="Edad del interesadx")
-    descripcion = models.CharField(max_length=1000, verbose_name="Descripción")
     profesion = models.CharField(max_length=1000, verbose_name="Profesión (solo para conocerte más a vos y tus horarios) ")
     convivencia = models.CharField(max_length=1000, verbose_name="¿Vivís con alguien? Si es así, cuántas personas y edades.")
     vivienda  = models.CharField(max_length=1000, verbose_name="Tipo de vivienda: Casa/Departamento/PH/Otro...")
@@ -81,4 +80,4 @@ class hogarTransito(models.Model):
         verbose_name_plural = 'hogares de tránsito'
 
     def __str__(self) -> str:
-        return f"{self.convivencia}"
+        return f"{self.animal_id}"
