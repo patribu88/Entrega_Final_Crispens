@@ -1,32 +1,57 @@
 {% extends 'animal/index.html' %}
-
+{% load static %}
 {% block title %}
     Listado de Animales
 {% endblock title %}
 
 {% block content_animal %}
 
-
-{% for object in animales %}
+{% block search %}
+<div class="py-lg-4">
+    <form action="{% url 'animal:animal_list' %}" method="get">
+        <input name="consulta" type="text" placeholder="Buscar...">
+    </form>
 </div>
-</div>
-<div class="col-md-4 mb-5">
-    <div class="card h-100">
-        <div class="card-body">
-            <h2 class="card-title">{{object.nombre}}</h2>
-            <p class="card-text">Edad: {{object.edad}}</p>
-            <p class="card-text">Tipo de Animal: {{object.tipo_animal_id}}</p>
-            <img src="{{ object.foto.url }}" alt="20px" width="300"></li>
-        </div>
-        <div class="card-footer">
-            <a class="btn btn-info" href="{% url 'animal:animal_detail' object.id %}">Detalles</a>
-                {% if user.is_staff %}
-                    <a class="btn btn-success" href="{% url 'animal:animal_update' object.id %}">Editar</a>
-                    <a class="btn btn-danger" href="{% url 'animal:animal_delete' object.id %}">Eliminar</a>   
-            
-                {% endif %}
+{% endblock search %}
 
+{% block table_header %}
+    <tr>
+        <th>Resultados de Búsqueda</th>
+
+    </tr>
+{% endblock table_header %}
+
+{% for object in object_list %}
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h5 class="card-title">{{object.nombre}}</h5>
+                        <p class="card-text">Edad: {{object.edad}}</p>
+                        <p class="card-text">Tipo de Animal: {{object.tipo_animal_id}}</p>
+                        <h1> </h1>
+                        <a href="{% url 'animal:animal_detail' object.id %}" class="btn btn-primary">Detalles</a>
+                        <h1></h1>
+                        {% if user.is_staff %}
+                        <a href="{% url 'animal:animal_update' object.id %}" class="btn btn-primary">Editar</a>
+                        <h1></h1>
+                        <a href="{% url 'animal:animal_delete' object.id %}" class="btn btn-primary">Eliminar</a>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <img class="" src="{{ object.foto1.url }}" alt="sans" width="200px">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-{% endfor %}
+</div>
+<div>
+
+</div>
+
+  {% endfor %}
 {% endblock content_animal %}

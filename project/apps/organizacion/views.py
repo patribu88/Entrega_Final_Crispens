@@ -18,6 +18,16 @@ class OrganizacionList(ListView):
     model = models.Organizacion
     context_object_name = "organizaciones"
 
+    def get_queryset(self):
+        if self.request.GET.get("consulta"):
+            query = self.request.GET.get("consulta")
+            object_list = models.Organizacion.objects.filter(nombre__icontains=query)
+        else:
+            object_list = models.Organizacion.objects.all()
+        return object_list
+
+
+
 class OrganizacionCreate(CreateView):
     model = models.Organizacion
     form_class = forms.OrganizacionForm

@@ -38,11 +38,17 @@ class Animal(models.Model):
     """
     nombre = models.CharField(max_length=30)
     edad = models.IntegerField()
-    organizacion_id = models.ForeignKey("organizacion.Organizacion", on_delete=models.SET_NULL, null=True)
+    organizacion_id = models.ForeignKey("organizacion.Organizacion", on_delete=models.SET_NULL, null=True, verbose_name="Organización")
     sexo_id = models.ForeignKey(Sexo, on_delete=models.SET_NULL, null=True)
-    tipo_animal_id = models.ForeignKey(TipoAnimal, on_delete=models.SET_NULL, null=True)
-    personalidad = models.CharField(max_length=300)
-    foto = models.ImageField(upload_to='Animales_Fotos', null=True, blank = True)
+    tipo_animal_id = models.ForeignKey(TipoAnimal, on_delete=models.SET_NULL, null=True, verbose_name="Tipo de animal")
+    observaciones = models.CharField(max_length=300)
+    foto1 = models.ImageField(upload_to='Animales_Fotos', null=True, blank = True)
+    foto2 = models.ImageField(upload_to='Animales_Fotos', null=True, blank = True)
+    foto3 = models.ImageField(upload_to='Animales_Fotos', null=True, blank = True)
+    apto_perros = models.BooleanField(default=False, verbose_name="Apto para hogar con perros")
+    apto_gatos = models.BooleanField(default=False, verbose_name="Apto para hogar con gatos")
+    apto_infantes = models.BooleanField(default=False, verbose_name="Apto para hogar con niños")
+    fecha_actualizacion = models.DateTimeField(default=timezone.now, editable=False, verbose_name="fecha de actualización")
 
     class  Meta:
         verbose_name = 'Animal'

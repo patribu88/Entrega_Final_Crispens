@@ -10,10 +10,12 @@
         <li>Organizacion: {{ object.organizacion_id }}</li>
         <li>Tipo de Animal: {{ object.tipo_animal_id }}</li>
         <li>Sexo: {{ object.sexo_id }}</li>
-        <li>Personalidad: {{ object.personalidad }}</li>
-        <img src="{{ object.foto.url }}" alt="20px" width="300"></li>
-    </ul>
+        <li>Observaciones: {{ object.observaciones }}</li>
+        <li>Ultima Actualización: {{ object.fecha_actualizacion }}</li>
 
+        <img src="{{ object.foto1.url }}" alt="20px" width="300"></li>
+        <img src="{{ object.foto2.url }}" alt="20px" width="300"></li>
+        <img src="{{ object.foto3.url }}" alt="20px" width="300"></li>
     {% url 'animal:index' as url %}
   
 {% endblock content_animal %}

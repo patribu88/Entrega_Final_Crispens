@@ -1,36 +1,39 @@
 {% extends 'organizacion/index.html' %}
-{% load static %}
-
-{% block title %}
-    Lista de Organizaciones
-{% endblock title %}
 
 {% block content_organizacion %}
-    {% for organizacion in organizaciones %}
-    </div>
+{% block search %}
+<div class="py-lg-4">
+    <form action="{% url 'organizacion:organizacion_list' %}" method="get">
+        <input name="consulta" type="text" placeholder="Buscar...">
+    </form>
 </div>
-<div class="col-md-4 mb-5">
-    <div class="card h-100">
-        <div class="card-body">
-            <h2 class="card-title">{{organizacion.nombre}}</h2>
-            <p class="card-text">E-mail: {{organizacion.email}}</p>
-            <p>Teléfono: {{organizacion.telefono}}</p>
-            <p>Dirección: {{organizacion.direccion}}</p>
-            <p>{{organizacion.descripcion}}</p>
-            <img src="{{item.organizacion.imagen.url}}" alt="">
+{% endblock search %}
+
+{% block table_header %}
+    <tr>
+        <th>Nombre de categoría</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+{% endblock table_header %}
  
-                    
-        </div>
-        <div class="card-footer">
-            {% if user.is_staff %}
-            <a class="btn btn-success" href="{% url 'organizacion:organizacion_update' organizacion.id %}">Editar</a>
-            <a class="btn btn-danger" href="{% url 'organizacion:organizacion_delete' organizacion.id %}">Eliminar</a>   
-            
+{% block table_body %}
+    {% for object in object_list %}
+        <tr>
+            <td>{{ object.nombre }}</td>
+            {% if user.is_staff %}    
+            <td>
+                <a href="{% url 'animal:animal_update' object.id %}"
+                   class="btn btn-primary btn-sm">Actualizar</a>
+            </td>
+            <td>
+                <a href="{% url 'animal:animal_delete' object.id %}"
+                   class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
             {% endif %}
-
-        </div>
-    </div>
+        </tr>
     {% endfor %}
-
+{% endblock table_body %}
 
 {% endblock content_organizacion %}

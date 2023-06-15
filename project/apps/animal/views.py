@@ -18,6 +18,14 @@ class AnimalList(ListView):
     template_name = "animal/list.html"
     context_object_name = "animales"
 
+    def get_queryset(self):
+        if self.request.GET.get("consulta"):
+            query = self.request.GET.get("consulta")
+            object_list = models.Animal.objects.filter(nombre__icontains=query)
+        else:
+            object_list = models.Animal.objects.all()
+        return object_list   
+
 class AnimalDetail(DetailView):
     model = models.Animal
 
