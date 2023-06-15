@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 
+
+from .models import hogarTransito
 #Form customizada para creación de usuarios.
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
@@ -24,3 +26,4 @@ class UserEditForm(UserCreationForm):
         model = User
         fields = ['email', 'password1', 'password2']
         help_texts = {k: "" for k in fields}
+

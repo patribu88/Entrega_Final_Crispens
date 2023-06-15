@@ -1,0 +1,18 @@
+{% extends 'animal/index.html' %}
+
+{% block title %}
+    LLenar el siguiente formulario.
+{% endblock title %}
+
+{% block content_animal %}
+<form method="post" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="d-grid gap-3">
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </div>
+</form>
+{% url 'animal:index' as url %}
+
+
+{% endblock content_animal %}

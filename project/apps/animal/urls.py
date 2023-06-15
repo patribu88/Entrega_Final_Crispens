@@ -11,4 +11,5 @@ urlpatterns = [
     path("animal/create/", staff_member_required(views.AnimalCreate.as_view()), name="animal_create"),
     path("animal/delete/<int:pk>", staff_member_required(views.AnimalDelete.as_view()), name="animal_delete"),
     path("animal/update/<int:pk>", staff_member_required(views.AnimalUpdate.as_view()), name="animal_update"),
+    path("animal/hogartransitocreate/", views.hogarTransitoCreate.as_view(), name="hogartransitocreate"),
 ]

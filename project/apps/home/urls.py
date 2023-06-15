@@ -28,6 +28,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name='home/logout.html'), name='logout'),
     path('editarPerfil/', views.editarPerfil, name='editarPerfil'),
     path('sobreNosotrxs/', views.sobreNosotrxs, name='sobreNosotrxs'),
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()    

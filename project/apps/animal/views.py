@@ -42,6 +42,11 @@ class AnimalDelete(DeleteView):
 
 class AnimalUpdate(UpdateView):
     model = models.Animal
+
     success_url = reverse_lazy("animal:animal_list")
     form_class = forms.AnimalForm
 
+class hogarTransitoCreate(CreateView):
+    model = models.hogarTransito
+    form_class = forms.hogarTransitoForm
+    success_url = reverse_lazy("animal:index")

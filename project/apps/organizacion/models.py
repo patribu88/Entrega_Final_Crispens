@@ -27,6 +27,7 @@ class Organizacion(models.Model):
     direccion = models.CharField(max_length=50)
     region_id = models.ForeignKey(Region, on_delete=models.SET_NULL, null=True)
     avatar = models.ImageField(upload_to='avatars', null=True, blank = True)
+    descripcion = models.CharField(max_length=1000, verbose_name="Descripción")
 
     class  Meta:
         verbose_name = 'organización'

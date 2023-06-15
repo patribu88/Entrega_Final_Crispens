@@ -4,6 +4,9 @@ from .import views
 from .import forms
 from .import models
 
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView 
+from django.urls import reverse_lazy
 
 #Para el login:
 
@@ -62,4 +65,5 @@ def editarPerfil(request):
         miFormulario = forms.UserEditForm(initial={'email': usuario.email})
 
     return render(request, "home/editarPerfil.html", {"miFormulario": miFormulario, "usuario": usuario})
-    
+
+

@@ -2,37 +2,38 @@
 
 {% block content_organizacion %}
 {% block search %}
+
 <div class="py-lg-4">
     <form action="{% url 'organizacion:organizacion_list' %}" method="get">
-        <input name="consulta" type="text" placeholder="Buscar...">
+        <input name="consulta" type="text" placeholder="Buscar organización...">
     </form>
 </div>
 {% endblock search %}
 
-{% block table_header %}
-    <tr>
-        <th>Nombre de categoría</th>
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
-{% endblock table_header %}
  
 {% block table_body %}
     {% for object in object_list %}
-        <tr>
-            <td>{{ object.nombre }}</td>
-            {% if user.is_staff %}    
-            <td>
-                <a href="{% url 'animal:animal_update' object.id %}"
-                   class="btn btn-primary btn-sm">Actualizar</a>
-            </td>
-            <td>
-                <a href="{% url 'animal:animal_delete' object.id %}"
-                   class="btn btn-danger btn-sm">Eliminar</a>
-            </td>
-            {% endif %}
-        </tr>
+    <div class="row row-cols-3  row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card">
+            <img src="{{ object.avatar.url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ object.nombre }}</h5>
+              <p class="card-text">{{ object.descripcion }}</p>
+              {% if user.is_staff %}    
+              <td>
+                  <a href="{% url 'organizacion:organizacion_update' object.id %}"
+                     class="btn btn-primary btn-sm">Actualizar</a>
+              </td>
+              <td>
+                  <a href="{% url 'organizacion:organizacion_delete' object.id %}"
+                     class="btn btn-danger btn-sm">Eliminar</a>
+              </td>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
     {% endfor %}
 {% endblock table_body %}
 
