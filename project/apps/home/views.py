@@ -4,9 +4,6 @@ from .import views
 from .import forms
 from .import models
 
-from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView 
-from django.urls import reverse_lazy
 
 #Para el login:
 

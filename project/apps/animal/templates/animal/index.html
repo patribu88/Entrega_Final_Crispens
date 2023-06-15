@@ -5,22 +5,24 @@
     <div class="container mt-lg-3">
         <h3 class="pb-lg-3">
 
-            {% block title %}
-                animalitos
-            {% endblock title %}
         </h3>
 
         {% block content_animal %}
-            <div class="">
-                
-                <a href="{% url 'animal:animal_list' %}" class="btn btn-info">Listar</a>
-                
-                {% if user.is_staff %}
-                    <a href="{% url 'animal:animal_create' %}" class="btn btn-success">Crear</a>
-                {% endif %}
-            <h2></h2>    
-                <br>
+
+
+        <div class="card text-bg-dark mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Animales disponibles para transitar </h5>
+              <p class="card-text">Los animales listados están esperando para su adopción final, pero dado que los refugios tienen capacidad limitada o los animales tienen necesidades especiales es necesario un hogar de tránsito.</p>
+              <a href="{% url 'animal:animal_list' %}" class="btn btn-info">Listar</a>
+              {% if  user.is_staff %}
+              <a href="{% url 'animal:animal_create' %}" class="btn btn-success">Crear</a>
+              {% endif %}
+              
             </div>
+          </div>
+            <div class="">
+
         {% endblock content_animal %}
     </div>
 {% endblock content %}

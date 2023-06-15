@@ -8,6 +8,9 @@ class AnimalForm(forms.ModelForm):
         model = Animal
         fields = "__all__"
 
+        widgets = {
+            "apto_perros": forms.Select(attrs={"class": "form-control"}),
+        }
 
 class hogarTransitoForm(forms.ModelForm):
     class Meta:

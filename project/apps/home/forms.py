@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 
 
-from .models import hogarTransito
+from .models import Usuario
 #Form customizada para creación de usuarios.
 class CustomUserCreationForm(UserCreationForm):
     class Meta:

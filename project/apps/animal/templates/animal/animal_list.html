@@ -6,6 +6,13 @@
 
 {% block content_animal %}
 
+<div class="card text-bg-dark mb-3">
+    <div class="card-body">
+        <h5 class="card-title">¡Quiero transitar! ¿Cómo hago? </h5>
+      <p class="card-text">Podes ingresar un formulario para postularte como hogar de tránsito para alguno de los animales disponibles para transitar. Una vez que es revisado por la organización a cargo del animal, se contactarán con vos para los próximos pasos.</p>
+      <a href="{% url 'animal:hogartransitocreate' %}" class="btn btn-info">Formulario</a>
+    </div>
+  </div>
 {% block search %}
 <div class="py-lg-4">
     <form action="{% url 'animal:animal_list' %}" method="get">
@@ -33,12 +40,12 @@
                         <p class="card-text">Edad: {{object.edad}}</p>
                         <p class="card-text">Tipo de Animal: {{object.tipo_animal_id}}</p>
                         <h1> </h1>
-                        <a href="{% url 'animal:animal_detail' object.id %}" class="btn btn-primary">Detalles</a>
+                        <a href="{% url 'animal:animal_detail' object.id %}" class="btn btn-info">Detalles</a>
                         <h1></h1>
                         {% if user.is_staff %}
-                        <a href="{% url 'animal:animal_update' object.id %}" class="btn btn-primary">Editar</a>
+                        <a href="{% url 'animal:animal_update' object.id %}" class="btn btn-info">Editar</a>
                         <h1></h1>
-                        <a href="{% url 'animal:animal_delete' object.id %}" class="btn btn-primary">Eliminar</a>
+                        <a href="{% url 'animal:animal_delete' object.id %}" class="btn btn-info">Eliminar</a>
                         {% endif %}
                     </div>
                     <div class="col-sm-6 text-right">

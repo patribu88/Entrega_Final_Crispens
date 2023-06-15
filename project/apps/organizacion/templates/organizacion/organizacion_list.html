@@ -23,11 +23,11 @@
               {% if user.is_staff %}    
               <td>
                   <a href="{% url 'organizacion:organizacion_update' object.id %}"
-                     class="btn btn-primary btn-sm">Actualizar</a>
+                     class="btn btn-info">Actualizar</a>
               </td>
               <td>
                   <a href="{% url 'organizacion:organizacion_delete' object.id %}"
-                     class="btn btn-danger btn-sm">Eliminar</a>
+                     class="btn btn-info">Eliminar</a>
               </td>
               {% endif %}
             </div>

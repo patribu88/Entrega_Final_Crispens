@@ -1,8 +1,16 @@
 {% extends 'home/base.html' %}
 
+{% load static %}
+
 
 {% block content %}
     
-Esta página.
-
+<div class="card text-bg-dark">
+    <img src="{% static 'home/img/Gonzo.jpeg' %}" class="card-img" alt="...">
+    <div class="card-img-overlay">
+      <h5 class="card-title">Sobre Nosotrxs</h5>
+      <p class="card-text">Mi nombre es Patricia y el objetivo de este trabajo es fomentar la importancia de transitar animales que esperan su adopción. Es importantísimo para poder revelar la verdadera personalidad de los animales sin vivir en entornos de stress o brindar los cuidados esenciales para animales con enfermedades o patologías.</p>
+      <p class="card-text"><small>Con Gonzo en el río.</small></p>
+    </div>
+  </div>
 {% endblock content %}
