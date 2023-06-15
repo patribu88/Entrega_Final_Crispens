@@ -64,6 +64,9 @@ class Animal(models.Model):
 
 
 class hogarTransito(models.Model):
+    """
+    Modelo para la creación del formulario de postulación de Hogar de Tránsito.
+    """
     animal_id = models.ForeignKey(Animal, on_delete=models.SET_NULL, null=True, verbose_name="Animal")
     direccion = models.CharField(max_length=200, verbose_name="Localidad/Barrio")
     edad = models.IntegerField(verbose_name="Edad del interesadx")

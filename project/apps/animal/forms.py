@@ -4,6 +4,8 @@ from .models import Animal, hogarTransito
 
 
 class AnimalForm(forms.ModelForm):
+
+    """Formulario para cargar un animal para transitar."""
     class Meta:
         model = Animal
         fields = "__all__"
@@ -13,6 +15,7 @@ class AnimalForm(forms.ModelForm):
         }
 
 class hogarTransitoForm(forms.ModelForm):
+    """Formulario para postularse para transitar un animal."""
     class Meta:
         model = hogarTransito
         fields = "__all__"

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Usuario(models.Model):
+    """Modelo para cargar el avatar de usuario."""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(upload_to="avatars", blank=True, null=True)
 
